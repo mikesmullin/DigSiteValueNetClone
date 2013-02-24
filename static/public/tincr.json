@@ -1,0 +1,22 @@
+{
+   "toFile":[
+      {
+         "from":"/assets/(.+\\.js)",
+         "to":"/assets/$1"
+      },
+      {
+         "from":"/assets/(.+\\.css)",
+         "to":"/assets/$1"
+      }
+   ],
+   "fromFile":[
+      {
+         "from":"/assets/$1",
+         "to":"/assets/(.+\\.js)"
+      },
+      {
+         "from":"/assets/$1",
+         "to":"/assets/(.+\\.css)"
+      }
+   ]
+}
