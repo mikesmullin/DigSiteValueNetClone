@@ -26,6 +26,9 @@ task 'open', 'start main process loop', ->
       in: 'precompile/config'
       out: 'static/config'
     ,
+      in: 'precompile/jobs'
+      out: 'static/app/jobs'
+    ,
       in: 'precompile/controllers/server'
       out: 'static/app/controllers'
     ,
@@ -98,7 +101,7 @@ task 'open', 'start main process loop', ->
   ], '/**/*.json.coffee', asset.common_compiler()
 
   #asset.child_process_loop child_processes, 'node-inspector', 'node-inspector'
-  asset.child_process_loop child_processes, 'node', 'node', ['server.js']
+  asset.child_process_loop child_processes, 'node', 'node', ['app.js']
   process.on 'uncaughtException', (err) ->
     process.stderr.write "\nWARNING: handle your exceptions better: \n\n"+err.stack+"\n\n"
     process.exit 1

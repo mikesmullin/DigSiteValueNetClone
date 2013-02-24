@@ -208,6 +208,6 @@ flow.go(function() {
     return;
   }
   return server = app.listen(app.PORT, function() {
-    return console.log("worker " + process.pid + " listening on http://localhost:" + app.PORT + "/");
+    return console.log("app " + process.pid + " listening on http://localhost:" + app.PORT + "/");
   });
 });

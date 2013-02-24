@@ -140,4 +140,4 @@ flow.go -> # ready
 
   # start server
   server = app.listen app.PORT, ->
-    console.log "worker #{process.pid} listening on http://localhost:#{app.PORT}/"
+    console.log "app #{process.pid} listening on http://localhost:#{app.PORT}/"
