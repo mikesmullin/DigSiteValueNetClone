@@ -21,7 +21,11 @@ module.exports = function(app) {
         }).attempts(3).save();
         return res.send('no match');
       } else {
-        return res.send("<img width=\"100\" height=\"100\" src=\"data:image/png;base64," + result[0].thumbnail + "\" />");
+        app.set('title', result[0].fqdn);
+        return res.render('shared/pages/domain', {
+          body_class: 'hello',
+          domain: result[0]
+        });
       }
     });
   });

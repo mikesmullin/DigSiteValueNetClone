@@ -10,6 +10,6 @@ module.exports = (app) ->
         type: String, unique: true
       alexa_html: String
       thumbnail: String
-      date: Date
+      created: Date
 
     app.mongoose.model 'Domain', Domain

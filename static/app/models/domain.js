@@ -13,7 +13,7 @@ module.exports = function(app) {
       },
       alexa_html: String,
       thumbnail: String,
-      date: Date
+      created: Date
     });
     return app.mongoose.model('Domain', Domain);
   }

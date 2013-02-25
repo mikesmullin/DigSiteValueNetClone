@@ -12,5 +12,9 @@ module.exports = (app) ->
         jobs.create('scrape_alexa_domain_detail', domain: req.params.domain).attempts(3).save()
         res.send 'no match'
       else
-        res.send "<img width=\"100\" height=\"100\" src=\"data:image/png;base64,#{result[0].thumbnail}\" />"
+        app.set 'title', result[0].fqdn
+        res.render 'shared/pages/domain'
+          body_class: 'hello'
+          domain: result[0]
+        #res.send "<img width=\"100\" height=\"100\" src=\"data:image/png;base64,#{result[0].thumbnail}\" />"
         #res.send result[0]['alexa_html']
