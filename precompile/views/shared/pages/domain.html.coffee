@@ -12,245 +12,235 @@ div '#header', ->
      input type: 'text', id: 'frm_domain_text', value: '', autocomplete: 'off'
      input type: 'submit', id: 'frm_search_btn', value: 'Dig'
   div style: 'text-align:center', ->
-    div '#top_ga', ->
+    div '.top_ga', ->
   div style: 'text-align:center', ->
     div '#s_name', ->
       text '{{domain.fqdn}}'
       div '#links_qa', ->
-#<div id="main_content">
-#  <div id="text_desc">
-#    <div id="refresh_link"><a href="#" onCLick="javascript:get_tools_data22f('refresh','google.com');return false;"><img src="/img/refresh.png" alt="Refresh" title="Refresh" /></a></div>
-#    <div id="refresh_d" style="display:none;position:fixed;width:500px;height:200px;margin:auto;padding:20px;text-align:left;background-color:#fff;bottom:150px;left:200px;z-index:5000;border:30px solid #eaeaea;">
-#      <div id="progress" style="text-align:center;"><img src="/res/loading.gif" width="50" height="50" border="0" alt="progress" /></div>
-#      <div id="result2"></div>
-#    </div>
-#    <div style="float:left;padding:3px;margin:7px;border:1px solid #FFFFCC;">
-#      <img src="/i/1d/5/google.com.jpg" height="100" width="100" />
-#    </div>
-#    Google.com is <i><strong>15 Years, 5 Months, 10 Days </strong></i> old. <em>GOOGLE.COM</em>  has #<strong>1 rank</strong> on the internet.
-#    This rank shows site's popularity. Lower rank means more visitors that site gets. This website is estimated to get <strong>27 426 000</strong> unique visitors per day. These unique visitors make <strong>425 925 780</strong> pageviews. We estimate that this website earns at least <strong>$1 546 111</strong> USD per day with advertising revenues so it can be valued at least <strong>$1 394 591 744</strong> USD. We detected that the average page load time of this website is <strong>0.04</strong> seconds.
-#    This site has a <strong>9/10</strong> <em>PageRank</em>, it's IP address is <strong>74.125.225.227</strong>. Server of this website is located at <strong>Mountain View, CA, United States</strong>. We give this domain a SEO score of <strong>
-#    99/100</strong>. Last update:  <em>Saturday 23rd of February 2013</em>.
-#  </div>
-#  <center>
-#    <div class="big_re_ga">
-#    </div>
-#  </center>
-#  <div id="overview">
-#    <a name="overview"></a><br />
-#    <h3 class="mh">GOOGLE.COM</h3>
-#    <div id="innercontent">
-#      <p>
-#      <table width="100%" rules="rows" border="0" cellpadding="0" cellspacing="0" class="infolist">
-#        <tr>
-#          <th scope="row" align="left"><strong>Site Title</strong>:</th>
-#          <td>Google</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Alexa Rank</strong>:</th>
-#          <td>#1</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Pagerank</strong>:</th>
-#          <td>9/10</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Yandex CY</strong>:</th>
-#          <td>100 000</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Load Time</strong>:</th>
-#          <td>0.04 Seconds</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Favicon</strong>:</th>
-#          <td><img src="http://www.google.com/s2/favicons?domain=google.com" /></td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Daily Visitors</strong>:</th>
-#          <td>27 426 000</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Daily Pageviews</strong>:</th>
-#          <td>425 925 780</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Backward Links</strong>:</th>
-#          <td>4 212 698 422</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Unique Domains Backward Links</strong>:</th>
-#          <td>10 203 968</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Backward links from .Edu sites</strong>:</th>
-#          <td>12 280 345</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Backward links from .Gov sites</strong>:</th>
-#          <td>4 708 800</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Seo Score</strong>:</th>
-#          <td>99</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Daily Revenue</strong>:</th>
-#          <td>$1 546 111</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Website Worth</strong>:</th>
-#          <td>$1 394 591 744</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Primary Country</strong>:</th>
-#          <td>United States</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Alexa Rank in Primary Country</strong>:</th>
-#          <td>#0</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>IP Address</strong>:</th>
-#          <td>74.125.225.227</td>
-#        </tr>
-#        <tr>
-#          <th scope="row" align="left"><strong>Server Location</strong>:</th>
-#          <td>United States</td>
-#        </tr>
-#      </table>
-#      </p><br />
-#    </div>
-#  </div>
-#  <div id="html_a">
-#    <a name="html_a"></a><br />
-#    <h3 class="mh">HTML Analysis</h3>
-#    <table width="100%" rules="rows" border="0" cellpadding="0" cellspacing="0" class="infolist">
-#      <tr>
-#        <th scope="row" align="left"><strong>HTML Size</strong>:</th>
-#        <td>15.79 Kb</td>
-#        <th scope="row" align="left"><strong>External Links</strong>:</th>
-#        <td>8</td>
-#      </tr>
-#      <tr>
-#        <th scope="row" align="left"><strong>Internal Links</strong>:</th>
-#        <td>10</td>
-#        <th scope="row" align="left"><strong>H1 Tags</strong>:</th>
-#        <td>0</td>
-#      </tr>
-#      <tr>
-#        <th scope="row" align="left"><strong>H2 Tags</strong>:</th>
-#        <td>0</td>
-#        <th scope="row" align="left"><strong>H3 Tags</strong>:</th>
-#        <td>0</td>
-#      </tr>
-#      <tr>
-#        <th scope="row" align="left"><strong>H4 Tags</strong>:</th>
-#        <td>0</td>
-#        <th scope="row" align="left"><strong>H5 Tags</strong>:</th>
-#        <td>0</td>
-#      </tr>
-#      <tr>
-#        <th scope="row" align="left"><strong>H6 Tags</strong>:</th>
-#        <td>0</td>
-#        <th scope="row" align="left"><strong>Iframe</strong>:</th>
-#        <td>1</td>
-#      </tr>
-#      <tr>
-#        <th scope="row" align="left"><strong>Scripts</strong>:</th>
-#        <td>1</td>
-#        <th scope="row" align="left"><strong>Objects</strong>:</th>
-#        <td>0</td>
-#      </tr>
-#      <tr>
-#        <th scope="row" align="left"><strong>Forms</strong>:</th>
-#        <td>1</td>
-#        <th scope="row" align="left"><strong>Total Images</strong>:</th>
-#        <td>1</td>
-#      </tr>
-#    </table>
-#    <br /><br />
-#  </div>
-#  <div id="visitors_by_country">
-#    <a name="visitors_by_country"></a><br />
-#    <h3 class="mh">Visitors By Countries Map</h3>
-#    <br />
-#    <script type="text/javascript">
-#      google.load('visualization', '1', {'packages': ['geomap']});
-#      google.setOnLoadCallback(drawMap);
-#      function drawMap() {
-#        var data = google.visualization.arrayToDataTable([
-#      ['Country', 'Popularity'],
-#      ['United States',8172948],
-#      ['India',2523192],
-#      ['Brazil',932484],
-#      ['Russia',932484],
-#      ['Japan',850206],
-#      ['Iran, Islamic Republic of',740502],
-#      ['United Kingdom',713076],
-#      ['Indonesia',685650],
-#      ['France',603372],
-#      ['China',603372],
-#      ['Spain',575946],
-#      ['Mexico',493668],
-#      ['Germany',493668],
-#      ['Canada',438816],
-#      ['Italy',383964],
-#      ['Australia',329112],
-#      ['Poland',301686],
-#      ['Pakistan',301686],
-#      ['Turkey',274260],
-#      ['Netherlands',274260],
-#      ['Thailand',246834],
-#      ['South Africa',219408],
-#      ['South Korea',219408],
-#      ['Taiwan',191982],
-#      ['Malaysia',191982],
-#      ['Saudi Arabia',191982],
-#      ['Argentina',191982],
-#      ['Egypt',164556],
-#      ['Colombia',164556],
-#      ['Nigeria',164556],
-#      ['Philippines',164556],
-#      ['Ukraine',164556],
-#      ['Belgium',137130],
-#      ['Sweden',137130],
-#      ['Greece',137130],
-#     ]);
-#         var options = {};
-#         options['dataMode'] = 'regions';
-#         var container = document.getElementById('map_canvas');
-#         var geomap = new google.visualization.GeoMap(container);
-#         geomap.draw(data, options);
-#      };
-#    </script>
-#    <div id="map_canvas"></div>
-#  </div>
-#  <div id="alexa">
-#    <a name="alexa"></a><br />
-#    <h3 class="mh">Alexa Traffic Analysis</h3>
-#    <div id="innercontent">
-#      <p>GOOGLE.COM is ranked <em>#1</em> on the internet. This rank shows site's popularity. Lower rank means more visitors that site gets. Most of users come to this website from <em><b>United States</b></em>. This website is ranked <em>#0</em> in <em><b>United States</b></em>.
-#        It has <em>27 426 000</em> visitors per day, and has <em>425 925 780</em> pageviews per day. Click on the tabs below to get more info.
-#      </p>
-#      <br class="clear" />
-#      <div>
-#        <div>
-#          <div id="tabs">
-#            <ul id="tabs-ul">
-#              <li id="li1" class="on"><span class="tab">Country  Traffic</span></li>
-#              <li id="li2"><span class="tab">Subdomains Visitors</span></li>
-#              <li id="li3"><span class="tab">Top Keywords</span></li>
-#            </ul>
-#            <div id="dd1" class="mod on">
-#              <p>
-#              <table class="twinfo-table tablist" width="100%" rules="cols" border="0" cellpadding="0" cellspacing="0" id="country_rank_all">
-#                <tr>
-#                  <th scope="col" width="7%"> &nbsp;No.</th>
-#                  <th scope="col">Country</th>
-#                  <th scope="col" width="20%">% Traffic</th>
-#                  <th scope="col" width="20%">Daily Visitors</th>
-#                </tr>
+div '#main_content', ->
+  div "#text_desc", ->
+    div "#refresh_link", ->
+      a href: "#", onclick: "javascript:get_tools_data22f('refresh','google.com');return false;", ->
+        img src: "/img/refresh.png", alt: "Refresh", title: "Refresh"
+    div "#refresh_d", style: "display:none;position:fixed;width:500px;height:200px;margin:auto;padding:20px;text-align:left;background-color:#fff;bottom:150px;left:200px;z-index:5000;border:30px solid #eaeaea;", ->
+      div "#progress", style: "text-align:center;", ->
+        img src: "/res/loading.gif", width: 50, height: 50, border: 0, alt: "progress"
+      div "#result2", ->
+    div style: "float:left;padding:3px;margin:7px;border:1px solid #FFFFCC;", ->
+      img src: "data:image/png;base64,{{domain.thumbnail}}", height: 100, width: 100
+    text """
+    Google.com is <i><strong>15 Years, 5 Months, 10 Days </strong></i> old. <em>GOOGLE.COM</em>  has #<strong>1 rank</strong> on the internet.
+    This rank shows site's popularity. Lower rank means more visitors that site gets. This website is estimated to get <strong>27 426 000</strong> unique visitors per day. These unique visitors make <strong>425 925 780</strong> pageviews. We estimate that this website earns at least <strong>$1 546 111</strong> USD per day with advertising revenues so it can be valued at least <strong>$1 394 591 744</strong> USD. We detected that the average page load time of this website is <strong>0.04</strong> seconds.
+    This site has a <strong>9/10</strong> <em>PageRank</em>, it's IP address is <strong>74.125.225.227</strong>. Server of this website is located at <strong>Mountain View, CA, United States</strong>. We give this domain a SEO score of <strong>
+    99/100</strong>. Last update:  <em>Saturday 23rd of February 2013</em>.
+    """
+  div style: 'text-align:center', ->
+    div '.big_re_ga', ->
+  div "#overview", ->
+    a name: "overview"
+    br()
+    h3 ".mh", '{{domain.fqdn}}'
+    div "#innercontent", ->
+      p ->
+        table 'infolist', width: "100%", rules: "rows", border: 0, cellpadding: 0, cellspacing: 0, ->
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Site Title'
+              text ':'
+            td 'Google'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Alexa Rank'
+              text ':'
+            td '#1'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Pagerank'
+              text ':'
+            td '9/10'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Yandex CY'
+              text ':'
+            td '100 000'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Load Time'
+              text ':'
+            td '0.04 Seconds'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Favicon'
+              text ':'
+            td ->
+              img src: "http://www.google.com/s2/favicons?domain=google.com"
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Daily Visitors'
+              text ':'
+            td '27 426 000'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Daily Pageviews'
+              text ':'
+            td '425 925 780'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Backward Links'
+              text ':'
+            td '4 212 698 422'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Unique Domains Backward Links'
+              text ':'
+            td '10 203 968'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Backward links from .Edu sites'
+              text ':'
+            td '12 280 345'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Backward links from .Gov sites'
+              text ':'
+            td '4 708 800'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Seo Score'
+              text ':'
+            td '99'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Daily Revenue'
+              text ':'
+            td '$1 546 111'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Website Worth'
+              text ':'
+            td '$1 394 591 744'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Primary Country'
+              text ':'
+            td 'United States'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Alexa Rank in Primary Country'
+              text ':'
+            td '#0'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'IP Address'
+              text ':'
+            td '74.125.225.227'
+          tr ->
+            th scope: "row", align: "left", ->
+              strong 'Server Location'
+              text ':'
+            td 'United States'
+      br()
+  div "#html_a", ->
+    a name: "html_a"
+    br()
+    h3 ".mh", 'HTML Analysis'
+    table '.infolist', width: "100%", rules: "rows", border: 0, cellpadding: 0, cellspacing: 0, ->
+      tr ->
+        th scope: "row", align: "left", ->
+          strong 'HTML Size'
+          text ':'
+        td '15.79 Kb'
+        th scope: "row", align: "left", ->
+          strong 'External Links'
+          text ':'
+        td '8'
+      tr ->
+        th scope: "row", align: "left", ->
+          strong 'Internal Links'
+          text ':'
+        td '10'
+        th scope: "row", align: "left", ->
+          strong 'H1 Tags'
+          text ':'
+        td '0'
+      tr ->
+        th scope: "row", align: "left", ->
+           strong 'H2 Tags'
+           text ':'
+        td '0'
+        th scope: "row", align: "left", ->
+          strong 'H3 Tags'
+          text ':'
+        td '0'
+      tr ->
+        th scope: "row", align: "left", ->
+          strong 'H4 Tags'
+          text ':'
+        td '0'
+        th scope: "row", align: "left", ->
+          strong 'H5 Tags'
+          text ':'
+        td '0'
+      tr ->
+        th scope: "row", align: "left", ->
+          strong 'H6 Tags'
+          text ':'
+        td '0'
+        th scope: "row", align: "left", ->
+          strong 'Iframe'
+          text ':'
+        td '1'
+      tr ->
+        th scope: "row", align: "left", ->
+          strong 'Scripts'
+          text ':'
+        td '1'
+        th scope: "row", align: "left", ->
+          strong 'Objects'
+          text ':'
+        td '0'
+      tr ->
+        th scope: "row", align: "left", ->
+          strong 'Forms'
+          text ':'
+        td '1'
+        th scope: "row", align: "left", ->
+          strong 'Total Images'
+          text ':'
+        td '1'
+    br()
+    br()
+  div "#alexa", ->
+    a name: "alexa"
+    br()
+    h3 ".mh", 'Alexa Traffic Analysis'
+    div "#innercontent", ->
+      p """
+      GOOGLE.COM is ranked <em>#1</em> on the internet. This rank shows site's popularity. Lower rank means more visitors that site gets. Most of users come to this website from <em><b>United States</b></em>. This website is ranked <em>#0</em> in <em><b>United States</b></em>.
+        It has <em>27 426 000</em> visitors per day, and has <em>425 925 780</em> pageviews per day. Click on the tabs below to get more info.
+      """
+      br ".clear", ->
+      div ->
+        div ->
+          div "#tabs", ->
+            ul "#tabs-ul", ->
+              li "#li1.on", ->
+                span ".tab", 'Country Traffic'
+              li "#li2", ->
+                span ".tab", 'Subdomains Visitors'
+              li "#li3", ->
+                span ".tab", 'Top Keywords'
+            div "#dd1.mod.on", ->
+              p ->
+                table "#country_rank_all.twinfo-table.tablist", width: "100%", rules: "cols", border: 0, cellpadding: 0, cellspacing: 0, ->
+                  tr ->
+                    th scope: "col", width: "7%", '&nbsp;No.'
+                    th scope: "col", 'Country'
+                    th scope: "col", width: "20%", '% Traffic'
+                    th scope: "col", width: "20%", 'Daily Visitors'
+
+div '#raw', '{{domain.alexa_html}}'
+
 #                <tr style="background:#eeeeee;">
 #                  <td>&nbsp;&nbsp;&nbsp;1.</td>
 #                  <td>&nbsp;United States</td>
@@ -1160,16 +1150,15 @@ div '#header', ->
 #    </div>
 #  </div>
 #</div>
-#<ul id="menu">
-#  <li><a href="http://digsitevalue.net">Home</a></li>
-#  <li><a href="http://digsitevalue.net/about.html">About us</a></li>
-#  <li><a href="http://digsitevalue.net/services.html">Tools</a></li>
-#  <li><a href="http://digsitevalue.net/themes/contempt/">Contempt Theme</a></li>
-#  <li><a href="http://digsitevalue.net/privacy-policy.html">Privacy Policy</a></li>
-#  <li><a href="http://digsitevalue.net/contact-us.html">Contact Us</a></li>
-#  <li><a href="http://digsitevalue.net/topsites/">Top Sites</a></li>
-#  <li><a href="http://digsitevalue.net/last-analysed.html">Last Analysed</a></li>
-#</ul>
-#<div id="Copyright">
-#  Copyright © 2013
-#</div>
+
+ul '#menu', ->
+  li -> a href: "/", 'Home'
+  li -> a href: "/about.html", 'About us'
+  li -> a href: "/services.html", 'Tools'
+  li -> a href: "/themes/contempt/", 'Contempt Theme'
+  li -> a href: "/privacy-policy.html", 'Privacy Policy'
+  li -> a href: "/contact-us.html", 'Contact Us'
+  li -> a href: "/topsites/", 'Top Sites'
+  li -> a href: "/last-analysed.html", 'Last Analyzed'
+
+div "#Copyright", 'Copyright &copy; 2013'

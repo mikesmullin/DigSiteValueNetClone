@@ -16,5 +16,3 @@ module.exports = (app) ->
         res.render 'shared/pages/domain'
           body_class: 'hello'
           domain: result[0]
-        #res.send "<img width=\"100\" height=\"100\" src=\"data:image/png;base64,#{result[0].thumbnail}\" />"
-        #res.send result[0]['alexa_html']
