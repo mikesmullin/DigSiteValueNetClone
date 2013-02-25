@@ -1,6 +1,4 @@
-var app, async, cb, express, flow, fs, path, server, sugar,
-  __hasProp = {}.hasOwnProperty,
-  __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+var app, async, cb, express, flow, fs, path, server, sugar;
 
 path = require('path');
 
@@ -91,33 +89,24 @@ flow.serial(function(next) {
 });
 
 flow.serial(function(next) {
-  var db_file, sql;
-  sql = require('node-sqlite-purejs');
-  return sql.open(db_file = "" + app.STATIC + "db/" + process.env.NODE_ENV + ".sqlite", {}, function(err, db) {
-    if (err) {
-      throw err;
-    }
-    app.db = db;
-    console.log("opened db " + db_file);
-    app.require_model = function(file) {
-      var Model;
-      Model = require(app.SERVER_MODELS + file);
-      Model.prototype.execute_sql = function(q, cb) {
-        console.log("executing sql: " + q);
-        return app.db.exec(q, cb);
-      };
-      return Model;
-    };
-    app.model = function(file) {
-      return new (app.require_model(file));
-    };
-    return next();
+  var db_string, mongoose;
+  mongoose = require('mongoose');
+  db_string = 'mongodb://localhost/watermelon';
+  mongoose.connect(db_string);
+  mongoose.connection.once('open', function() {
+    return console.log("connected to " + db_string);
   });
+  app.require_model = function(name) {
+    return (require(app.SERVER_MODELS + name))(app);
+  };
+  app.model = function(name) {
+    return new (app.require_model(name));
+  };
+  app.mongoose = mongoose.connection;
+  return next();
 });
 
 flow.serial(function(next) {
-  var SQLStore;
-  app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(function(req, res, done) {
     console.log("" + req.method + " \"" + req.url + "\" for " + req.ip + " at " + (Date.create().iso()));
@@ -125,70 +114,6 @@ flow.serial(function(next) {
       console.log("POSTDATA ", req.body);
     }
     return done();
-  });
-  app.use(express.methodOverride());
-  app.use(express.session({
-    key: require(path.join(__dirname, 'package.json')).name + '.sid',
-    secret: "<REPLACE WITH YOUR KEYBOARD CAT HERE>",
-    cookie: {
-      path: '/',
-      maxAge: 1000 * 60 * 30
-    },
-    store: new (SQLStore = (function(_super) {
-
-      __extends(SQLStore, _super);
-
-      function SQLStore() {
-        return SQLStore.__super__.constructor.apply(this, arguments);
-      }
-
-      SQLStore.prototype.get = function(session_id, cb) {
-        return app.model('session').select('data').where({
-          session_id: session_id
-        }).first(function(err, session) {
-          if (err) {
-            return cb(err);
-          }
-          return cb(null, session ? JSON.parse(session.data) : void 0);
-        });
-      };
-
-      SQLStore.prototype.set = function(session_id, data, cb) {
-        var session;
-        session = app.model('session');
-        return session.select('id').where({
-          session_id: session_id
-        }).first(function(err, result) {
-          if (err) {
-            return cb(err);
-          }
-          if (result) {
-            session.id = result.id;
-          }
-          session.session_id = session_id;
-          session.data = JSON.stringify(data);
-          return session.save(function(err) {
-            if (err) {
-              return cb(err);
-            }
-            return cb(null);
-          });
-        });
-      };
-
-      return SQLStore;
-
-    })(express.session.Store))
-  }));
-  app.use(require('connect-flash')());
-  app.use(function(req, res, next) {
-    res.locals._csrf = req.session._csrf;
-    res.locals.flash = {
-      alert: req.flash('error'),
-      notice: req.flash('notice')
-    };
-    res.locals.current_user = req.user;
-    return next();
   });
   app.require_auth = function(req, res, next) {
     if (req.isAuthenticated()) {

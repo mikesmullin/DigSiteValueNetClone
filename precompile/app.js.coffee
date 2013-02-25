@@ -70,58 +70,25 @@ flow.serial (next) -> # configure
   next()
 
 flow.serial (next) -> # database
-  sql = require 'node-sqlite-purejs'
-  sql.open db_file = "#{app.STATIC}db/#{process.env.NODE_ENV}.sqlite", {}, (err, db) ->
-    throw err if err
-    app.db = db
-    console.log "opened db #{db_file}"
-    app.require_model = (file) ->
-      Model = require app.SERVER_MODELS+file
-      Model::execute_sql = (q, cb) ->
-        console.log "executing sql: #{q}"
-        return app.db.exec q, cb
-      return Model
-    app.model = (file) ->
-      new (app.require_model file)
-    next()
+  mongoose = require 'mongoose'
+  db_string = 'mongodb://localhost/watermelon'
+  mongoose.connect db_string
+  mongoose.connection.once 'open', ->
+    console.log "connected to #{db_string}"
+  app.require_model = (name) ->
+    (require app.SERVER_MODELS + name)(app)
+  app.model = (name) ->
+    new (app.require_model name)
+  app.mongoose = mongoose.connection
+  next()
 
 flow.serial (next) -> # middleware
-  app.use express.cookieParser()
   app.use express.bodyParser()
   # http request logger
   app.use (req, res, done) ->
     console.log "#{req.method} \"#{req.url}\" for #{req.ip} at #{Date.create().iso()}"
     console.log "POSTDATA ", req.body if JSON.stringify(req.body) isnt '{}'
     done()
-  app.use express.methodOverride()
-  app.use express.session
-    key: require(path.join __dirname, 'package.json').name+'.sid'
-    secret: "<REPLACE WITH YOUR KEYBOARD CAT HERE>"
-    cookie: path: '/', maxAge: 1000*60*30 # 30mins
-    store: new class SQLStore extends express.session.Store
-      get: (session_id, cb) ->
-        app.model('session').select('data').where(session_id: session_id).first (err, session) ->
-          return cb err if err
-          cb null, if session then JSON.parse session.data else undefined
-      set: (session_id, data, cb) ->
-        session = app.model('session')
-        session.select('id').where(session_id: session_id).first (err, result) ->
-          return cb err if err
-          session.id = result.id if result
-          session.session_id = session_id
-          session.data = JSON.stringify data
-          session.save (err) ->
-            return cb err if err
-            cb null
-  app.use require('connect-flash')()
-  #app.use express.csrf()
-  app.use (req, res, next) ->
-    res.locals._csrf = req.session._csrf
-    res.locals.flash =
-      alert: req.flash 'error'
-      notice: req.flash 'notice'
-    res.locals.current_user = req.user
-    next()
 
   app.require_auth = (req, res, next) ->
     return next() if req.isAuthenticated()

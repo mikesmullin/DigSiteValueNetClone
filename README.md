@@ -1,3 +1,3 @@
 # DigSiteValueClone
 
-sudo apt-get install redis-server
+sudo apt-get install redis-server mongodb
