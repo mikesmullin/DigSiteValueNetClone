@@ -6,7 +6,7 @@ cluster = require('cluster');
 
 numCPUs = require('os').cpus().length;
 
-numCPUs = 2;
+numCPUs = 1;
 
 if (cluster.isMaster) {
   kue.app.listen(3002);

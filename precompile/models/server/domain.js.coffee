@@ -9,6 +9,7 @@ module.exports = (app) ->
       fqdn:
         type: String, unique: true
       alexa_html: String
+      thumbnail: String
       date: Date
 
     app.mongoose.model 'Domain', Domain

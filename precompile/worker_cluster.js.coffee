@@ -1,7 +1,7 @@
 kue = require 'kue'
 cluster = require 'cluster'
 numCPUs = require('os').cpus().length
-numCPUs = 2 # while debugging
+numCPUs = 1 # while debugging
 
 if cluster.isMaster
   kue.app.listen 3002

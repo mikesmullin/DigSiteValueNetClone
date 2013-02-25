@@ -11,7 +11,9 @@
     "async2": "*",
     "node-sqlite-purejs": "*",
     "kue": "~0.5.0",
-    "mongoose": "~3.5.7"
+    "mongoose": "~3.5.7",
+    "webshot": "~0.2.0",
+    "node-uuid": "~1.4.0"
   },
   "devDependencies": {
     "coffee-script": "*",

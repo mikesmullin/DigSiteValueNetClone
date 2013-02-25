@@ -21,7 +21,7 @@ module.exports = function(app) {
         }).attempts(3).save();
         return res.send('no match');
       } else {
-        return res.send(result[0]['alexa_html']);
+        return res.send("<img width=\"100\" height=\"100\" src=\"data:image/png;base64," + result[0].thumbnail + "\" />");
       }
     });
   });
