@@ -17,7 +17,6 @@ process.on 'uncaughtException', (err) ->
     if server then server.close()
     process.exit 1
 
-
 flow.serial (next) -> # configure
   process.env.NODE_ENV = process.env.NODE_ENV or 'development'
   app.PORT = process.env.PORT or 3001
@@ -73,13 +72,13 @@ flow.serial (next) -> # database
   mongoose = require 'mongoose'
   db_string = 'mongodb://localhost/watermelon'
   mongoose.connect db_string
-  mongoose.connection.once 'open', ->
+  mongoose.connection.on 'open', ->
     console.log "connected to #{db_string}"
   app.require_model = (name) ->
     (require app.SERVER_MODELS + name)(app)
   app.model = (name) ->
     new (app.require_model name)
-  app.mongoose = mongoose.connection
+  app.mongoose = mongoose
   next()
 
 flow.serial (next) -> # middleware
@@ -96,7 +95,7 @@ flow.serial (next) -> # middleware
 
   next()
 
-flow.go -> # ready
+process.nextTick -> flow.go -> # ready
   # controllers
   require(app.SERVER_CONTROLLERS+'application') app
 

@@ -6,6 +6,8 @@ cluster = require('cluster');
 
 numCPUs = require('os').cpus().length;
 
+numCPUs = 2;
+
 if (cluster.isMaster) {
   kue.app.listen(3002);
   console.log("kue listening on http://localhost:3002/");

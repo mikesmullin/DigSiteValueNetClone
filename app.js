@@ -93,7 +93,7 @@ flow.serial(function(next) {
   mongoose = require('mongoose');
   db_string = 'mongodb://localhost/watermelon';
   mongoose.connect(db_string);
-  mongoose.connection.once('open', function() {
+  mongoose.connection.on('open', function() {
     return console.log("connected to " + db_string);
   });
   app.require_model = function(name) {
@@ -102,7 +102,7 @@ flow.serial(function(next) {
   app.model = function(name) {
     return new (app.require_model(name));
   };
-  app.mongoose = mongoose.connection;
+  app.mongoose = mongoose;
   return next();
 });
 
@@ -124,15 +124,17 @@ flow.serial(function(next) {
   return next();
 });
 
-flow.go(function() {
-  require(app.SERVER_CONTROLLERS + 'application')(app);
-  if (typeof cb === 'function') {
-    process.nextTick(function() {
-      return cb(app);
+process.nextTick(function() {
+  return flow.go(function() {
+    require(app.SERVER_CONTROLLERS + 'application')(app);
+    if (typeof cb === 'function') {
+      process.nextTick(function() {
+        return cb(app);
+      });
+      return;
+    }
+    return server = app.listen(app.PORT, function() {
+      return console.log("app " + process.pid + " listening on http://localhost:" + app.PORT + "/");
     });
-    return;
-  }
-  return server = app.listen(app.PORT, function() {
-    return console.log("app " + process.pid + " listening on http://localhost:" + app.PORT + "/");
   });
 });

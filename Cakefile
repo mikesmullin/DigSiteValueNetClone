@@ -129,5 +129,5 @@ task 'db:create', 'create database of current NODE_ENV', ->
     console.log "wrote empty database #{db_file}."
 
 task 'db:seed', 'reimport the database', ->
-  require(path.xplat process.cwd(), 'server.js') (app) ->
+  require(path.xplat process.cwd(), 'app.js') (app) ->
     require(path.xplat process.cwd(), 'static/db/seeds.js')(app)

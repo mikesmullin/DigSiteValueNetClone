@@ -1,13 +1,19 @@
 
 module.exports = function(app) {
   var Domain, ObjectId, Schema;
-  Schema = app.mongoose.Schema;
-  ObjectId = Schema.ObjectId;
-  Domain = new Schema({
-    author: ObjectId,
-    title: String,
-    body: String,
-    date: Date
-  });
-  return app.mongoose.model('Domain', Domain);
+  try {
+    return app.mongoose.model('Domain');
+  } catch (e) {
+    Schema = app.mongoose.Schema;
+    ObjectId = Schema.ObjectId;
+    Domain = new Schema({
+      fqdn: {
+        type: String,
+        unique: true
+      },
+      alexa_html: String,
+      date: Date
+    });
+    return app.mongoose.model('Domain', Domain);
+  }
 };
